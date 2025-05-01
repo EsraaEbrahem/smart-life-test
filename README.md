@@ -2,7 +2,10 @@
 
 ## set DB connection settings
 
-## in db_file dir you can find sql files to run
+## in db-file dir you can find sql files to run IN ORDER sms_db.sql then db_changes.sql
+
+
+## run `composer install`
 
 ## you can try migration example by running `php index.php migrateController`
 
@@ -14,4 +17,4 @@
 
 ## call `php -S localhost:8000` in commandline to run the project
 
-## admin credintials [ username: admin , password: password]
+## admin credentials [ username: admin , password: password]

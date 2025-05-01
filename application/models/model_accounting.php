@@ -407,10 +407,11 @@ class Model_Accounting extends CI_Model
 
         if($from && $to){
             $sql.= " AND payment_date >= ?  AND payment_date <= ?";
-        }
+            $query = $this->db->query($sql, array(1, $from, $to));
+        }else
+            $query = $this->db->query($sql, array(1));
 
-		$query = $this->db->query($sql, array(1, $from, $to));
-		$result = $query->result_array();
+        $result = $query->result_array();
 		$totalIncome = 0;
 		foreach ($result as $key => $value) {
 			$totalIncome += $value['paid_amount'];
@@ -425,10 +426,11 @@ class Model_Accounting extends CI_Model
 
         if($from && $to){
             $sql.= " WHERE date >= ?  AND date <= ?";
-        }
+            $query = $this->db->query($sql, array( $from, $to));
+        }else
+            $query = $this->db->query($sql);
 
-        $query = $this->db->query($sql, array( $from, $to));
-		$result = $query->result_array();
+        $result = $query->result_array();
 		$totalExpenses = 0;
 		foreach ($result as $key => $value) {
 			$totalExpenses += $value['total_amount'];

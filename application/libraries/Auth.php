@@ -154,15 +154,19 @@ class Auth
      */
     public function userPermissions()
     {
-        return array_map(function ($item) {
-            return $item["name"];
-        }, $this->CI->db
-            ->select("permissions.*")
-            ->from("permissions")
-            ->join("role_permissions", "permissions.id = role_permissions.permission_id", "inner")
-            ->where_in("role_permissions.role_id", $this->roles())
-            ->group_by("role_permissions.permission_id")
-            ->get()->result_array());
+        if(sizeof($this->roles())>0){
+            return array_map(function ($item) {
+                return $item["name"];
+            }, $this->CI->db
+                ->select("permissions.*")
+                ->from("permissions")
+                ->join("role_permissions", "permissions.id = role_permissions.permission_id", "inner")
+                ->where_in("role_permissions.role_id", $this->roles())
+                ->group_by("role_permissions.permission_id")
+                ->get()->result_array());
+        }
+        return array();
+
     }
 
     /**

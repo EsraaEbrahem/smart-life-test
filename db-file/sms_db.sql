@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `attendance` (
 --
 
 INSERT INTO `attendance` (`attendance_id`, `attendance_type`, `student_id`, `teacher_id`, `class_id`, `section_id`, `attendance_date`, `mark`) VALUES
-(1, 2, 0, 1, 0, 0, '2019-01-02', 1),
-(2, 2, 0, 1, 0, 0, '2019-01-10', 1);
+(1, 2, 0, 1, 0, 0, '2025-05-02', 1),
+(2, 2, 0, 1, 0, 0, '2025-05-10', 1);
 
 -- --------------------------------------------------------
 
